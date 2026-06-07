@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prachi Bhattiwal Yoga | Breathe • Stretch • Transform</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for sophisticated feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Configs -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50: '#f4f7f4',
+                            100: '#e3eae3',
+                            200: '#cbdacb',
+                            300: '#a7c1a7',
+                            400: '#7fa37f',
+                            500: '#5e835e',
+                            600: '#486848',
+                            700: '#3a543a',
+                            800: '#304430',
+                            900: '#283928',
+                        },
+                        gold: {
+                            50: '#fcfaf2',
+                            100: '#fbf7ee',
+                            200: '#f5ead4',
+                            500: '#c5a880',
+                            600: '#b0926a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scale breathing animation keyframes */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); background-color: rgba(94, 131, 94, 0.2); }
+            45% { transform: scale(1.4); background-color: rgba(197, 168, 128, 0.35); }
+            55% { transform: scale(1.4); background-color: rgba(197, 168, 128, 0.35); }
+        }
+        .breathe-circle {
+            animation: breathe 10s infinite ease-in-out;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4f7f4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbdacb;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a7c1a7;
+        }
+    </style>
+</head>
+<body class="bg-sage-50 text-gray-800 font-sans antialiased selection:bg-sage-200 selection:text-sage-900">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-2 text-white transition-colors duration-300" id="nav-brand">
+                <svg class="w-8 h-8 text-gold-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C11.5 2 10 5 10 9c0 4 1.5 7 2 7s2-3 2-7c0-4-1.5-7-2-7zm-4.5 4c-.4 0-1.5 2.1-1.5 4.9 0 2.8 1.1 4.9 1.5 4.9s1.5-2.1 1.5-4.9c0-2.8-1.1-4.9-1.5-4.9zm9 0c-.4 0-1.5 2.1-1.5 4.9 0 2.8 1.1 4.9 1.5 4.9s1.5-2.1 1.5-4.9c0-2.8-1.1-4.9-1.5-4.9z"/>
+                    <path d="M12 18c-3.5 0-8 1.5-8 4h16c0-2.5-4.5-4-8-4z"/>
+                </svg>
+                <span class="font-serif font-bold text-lg md:text-xl tracking-wide">Prachi Bhattiwal Yoga</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8 text-white font-medium" id="nav-links">
+                <a href="#about" class="hover:text-gold-500 transition-colors duration-200">About</a>
+                <a href="#breathe-tool" class="hover:text-gold-500 transition-colors duration-200">Breathe</a>
+                <a href="#ai-sanctuary" class="hover:text-gold-500 text-gold-200 transition-colors duration-200"><i class="fa-solid fa-sparkles text-gold-500 animate-pulse mr-1"></i>AI Sanctuary</a>
+                <a href="#services" class="hover:text-gold-500 transition-colors duration-200">Classes</a>
+                <a href="#schedule" class="hover:text-gold-500 transition-colors duration-200">Schedule</a>
+                <a href="#testimonials" class="hover:text-gold-500 transition-colors duration-200">Testimonials</a>
+                <a href="#contact" class="hover:text-gold-500 transition-colors duration-200">Contact</a>
+                <button onclick="openBookingModal()" class="bg-gold-500 hover:bg-gold-600 text-white px-5 py-2 rounded-full shadow-lg transition-transform hover:scale-105 duration-200">Book Class</button>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-white focus:outline-none" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-sage-900 text-white shadow-xl py-6 px-8 space-y-4 flex flex-col items-center">
+            <a href="#about" class="mobile-nav-link text-lg hover:text-gold-500">About</a>
+            <a href="#breathe-tool" class="mobile-nav-link text-lg hover:text-gold-500">Breathe</a>
+            <a href="#ai-sanctuary" class="mobile-nav-link text-lg hover:text-gold-500 text-gold-200"><i class="fa-solid fa-sparkles text-gold-500 mr-1"></i>AI Sanctuary</a>
+            <a href="#services" class="mobile-nav-link text-lg hover:text-gold-500">Classes</a>
+            <a href="#schedule" class="mobile-nav-link text-lg hover:text-gold-500">Schedule</a>
+            <a href="#testimonials" class="mobile-nav-link text-lg hover:text-gold-500">Testimonials</a>
+            <a href="#contact" class="mobile-nav-link text-lg hover:text-gold-500">Contact</a>
+            <button onclick="openBookingModal()" class="w-full bg-gold-500 hover:bg-gold-600 py-3 rounded-full text-white font-bold transition-all">Book Class</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex flex-col justify-center items-center text-center px-4 md:px-12 bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(rgba(30, 43, 30, 0.65), rgba(30, 43, 30, 0.5)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1920&q=80');">
+        <div class="relative z-10 max-w-4xl mx-auto space-y-6 animate-fade-in px-2">
+            <span class="text-gold-500 uppercase tracking-[0.25em] font-semibold text-xs md:text-sm block">Welcome to Your Mindful Path</span>
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl text-white font-bold leading-tight drop-shadow-sm">
+                Prachi Bhattiwal Yoga
+            </h1>
+            <div class="h-1 w-24 bg-gold-500 mx-auto rounded-full my-4"></div>
+            <p class="text-lg md:text-2xl text-sage-100 font-light italic max-w-2xl mx-auto">
+                "Breathe • Stretch • Transform"
+            </p>
+            <p class="text-sm md:text-lg text-sage-200 tracking-wider max-w-xl mx-auto font-light">
+                Discover physical agility, mental clarity, and profound emotional harmony through dedicated practice.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
+                <button onclick="openBookingModal()" class="w-full sm:w-auto bg-gold-500 hover:bg-gold-600 text-white font-medium px-8 py-4 rounded-full shadow-xl transition-all hover:translate-y-[-2px] duration-200">
+                    <i class="fa-regular fa-calendar-check mr-2"></i> Book a Live Class
+                </button>
+                <a href="#ai-sanctuary" class="w-full sm:w-auto bg-sage-600/35 hover:bg-sage-600/50 border border-gold-500 text-white font-medium px-8 py-4 rounded-full transition-all duration-200">
+                    <i class="fa-solid fa-sparkles text-gold-200 mr-2"></i> AI Wellness Sanctuary
+                </a>
+            </div>
+        </div>
+
+        <!-- Wave divider at bottom -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[50px] md:h-[80px] text-sage-50 fill-current">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,57.05,18.3,90.47,26.85,164,45.88,247.42,70.1,321.39,56.44Z"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Interactive Mindfulness Breathing Widget Section -->
+    <section id="breathe-tool" class="py-16 px-6 md:px-12 bg-white scroll-mt-20">
+        <div class="max-w-4xl mx-auto bg-sage-50 rounded-3xl p-8 md:p-12 shadow-md text-center border border-sage-100 relative overflow-hidden">
+            <span class="text-xs uppercase tracking-widest text-gold-500 font-bold">Mindful Interlude</span>
+            <h2 class="font-serif text-3xl md:text-4xl text-sage-800 mt-2 mb-4 font-bold">Take a Beautiful Breath</h2>
+            <p class="text-gray-600 text-sm md:text-base max-w-lg mx-auto mb-8">
+                Clear your screen-fatigued mind. Align with the glowing circle below: inhale as it expands, hold, and exhale as it relaxes.
+            </p>
+
+            <!-- Breathe UI Ring -->
+            <div class="relative flex items-center justify-center my-10 h-64">
+                <!-- Glowing Pulsating Circle -->
+                <div id="breathe-bubble" class="breathe-circle absolute rounded-full w-36 h-36 flex items-center justify-center transition-all duration-1000">
+                    <div class="w-24 h-24 bg-sage-500/10 rounded-full border border-gold-500/20"></div>
+                </div>
+                <!-- Interactive Action Counter -->
+                <div class="z-10 bg-white/90 backdrop-blur-sm shadow-md rounded-full w-32 h-32 flex flex-col items-center justify-center border border-sage-100">
+                    <span id="breath-action" class="text-sage-700 font-bold uppercase tracking-wider text-sm">Breathe</span>
+                    <span id="breath-timer" class="text-gold-600 font-semibold mt-1">Ready</span>
+                </div>
+            </div>
+
+            <!-- Controller Buttons -->
+            <div class="flex justify-center gap-4">
+                <button id="btn-start-breathe" onclick="toggleBreathingWidget()" class="bg-sage-600 hover:bg-sage-700 text-white font-medium px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200">
+                    Start Guide
+                </button>
+                <button id="btn-reset-breathe" onclick="resetBreathingWidget()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium px-6 py-2.5 rounded-full transition-all duration-200" disabled>
+                    Reset
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Gemini AI Mindful Sanctuary -->
+    <section id="ai-sanctuary" class="py-20 px-6 md:px-12 bg-sage-100/50 border-y border-sage-200/60 scroll-mt-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-gold-200 text-gold-600 mb-2">
+                    <i class="fa-solid fa-sparkles animate-pulse"></i> Powered by Gemini AI
+                </span>
+                <h2 class="font-serif text-3xl md:text-5xl text-sage-900 font-bold">Your AI Mindful Sanctuary</h2>
+                <p class="text-gray-600 mt-2">Interact with our personalized intelligent yoga modules. Instantly generate sequences, hear spoken affirmations, and query our expert alignment assistant.</p>
+            </div>
+
+            <!-- Dashboard Style Card Wrapper -->
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-sage-200 grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+                
+                <!-- Left Sidebar Navigation for Sanctuary Tabs -->
+                <div class="lg:col-span-4 bg-sage-900 text-white p-6 md:p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-serif text-xl font-semibold text-gold-200 mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-yin-yang"></i> Sanctuary Tools
+                        </h3>
+                        <div class="space-y-3" role="tablist">
+                            <!-- Tab Button 1 -->
+                            <button id="tab-sequencer" onclick="switchSanctuaryTab('sequencer')" class="w-full text-left flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-200 bg-sage-800 text-gold-200 border-l-4 border-gold-500 font-medium text-sm md:text-base">
+                                <i class="fa-solid fa-compass text-lg"></i>
+                                <span>AI Pose Sequencer</span>
+                            </button>
+                            <!-- Tab Button 2 -->
+                            <button id="tab-affirmation" onclick="switchSanctuaryTab('affirmation')" class="w-full text-left flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-200 text-sage-300 hover:bg-sage-800/50 font-medium text-sm md:text-base">
+                                <i class="fa-solid fa-microphone text-lg"></i>
+                                <span>Spoken AI Affirmations</span>
+                            </button>
+                            <!-- Tab Button 3 -->
+                            <button id="tab-coach" onclick="switchSanctuaryTab('coach')" class="w-full text-left flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-200 text-sage-300 hover:bg-sage-800/50 font-medium text-sm md:text-base">
+                                <i class="fa-solid fa-comment-dots text-lg"></i>
+                                <span>Ask AI Yoga Coach</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-sage-800/60 hidden lg:block">
+                        <div class="flex items-center space-x-3 text-xs text-sage-400">
+                            <div class="p-2 bg-sage-800 rounded-lg text-gold-500">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <p>Private & secure AI workspace. Direct feedback compiled natively using state-of-the-art models.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Dynamic Workspace Panel -->
+                <div class="lg:col-span-8 p-6 md:p-10 flex flex-col">
+                    
+                    <!-- WORKSPACE 1: Pose Sequencer -->
+                    <div id="panel-sequencer" class="space-y-6 flex-grow">
+                        <div>
+                            <h4 class="font-serif text-2xl font-bold text-sage-900">Custom Pose Sequencer</h4>
+                            <p class="text-sm text-gray-500">Design a bespoke wellness flow suited to your alignment, injury conditions, and physical constraints.</p>
+                        </div>
+
+                        <!-- User Options Row -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-1.5">Primary Focus</label>
+                                <select id="seq-focus" class="w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                                    <option value="Neck & Shoulder Desk Therapy">Desk Therapy (Neck & Back)</option>
+                                    <option value="Deep Hip Opening & Flexibility">Hip Opening & Flexibility</option>
+                                    <option value="Calming Evening Flow for Better Sleep">Calming Sleep Routine</option>
+                                    <option value="Morning Wake-Up and Vigor Boost">Morning Vigor Boost</option>
+                                    <option value="Balance, Core Stability & Core Strength">Balance & Core Stability</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-1.5">Target Duration</label>
+                                <select id="seq-duration" class="w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                                    <option value="5 minutes (3 core poses)">5 Minutes (Quick Reset)</option>
+                                    <option value="15 minutes (5 core poses)">15 Minutes (Classic Flow)</option>
+                                    <option value="30 minutes (8 layered poses)">30 Minutes (Deep Mastery)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-1.5">Yogic Level</label>
+                                <select id="seq-level" class="w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                                    <option value="Gentle beginner adjustments, with modifications">Gentle Beginner</option>
+                                    <option value="Steady intermediate transition levels">Steady Intermediate</option>
+                                    <option value="Deep advanced poses, strong core holding">Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Generate Button -->
+                        <button onclick="generateAIYogaSequence()" class="w-full bg-sage-800 hover:bg-sage-900 text-white font-medium py-3 rounded-xl transition-all duration-200 shadow-md flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-sparkles text-gold-200"></i>
+                            <span>Generate Flow Sequence</span>
+                        </button>
+
+                        <!-- Response Screen -->
+                        <div id="seq-result-container" class="hidden border border-sage-100 rounded-2xl bg-sage-50/50 p-5 md:p-6 space-y-4 max-h-[380px] overflow-y-auto">
+                            <!-- Dynamic Content Inserted Here -->
+                        </div>
+                    </div>
+
+                    <!-- WORKSPACE 2: Spoken AI Affirmations (TTS Integration) -->
+                    <div id="panel-affirmation" class="space-y-6 hidden flex-grow">
+                        <div>
+                            <h4 class="font-serif text-2xl font-bold text-sage-900">Spoken Mindful Affirmations</h4>
+                            <p class="text-sm text-gray-500">Input your current mood and create a calming voice narration using Google Gemini's custom prebuilt speech synthesis models.</p>
+                        </div>
+
+                        <!-- Mood Grid Selector -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-2">How are you feeling right now?</label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <button onclick="setAffirmationMood('anxious', this)" class="mood-btn border-2 border-sage-200 hover:border-sage-400 bg-white p-3 rounded-xl text-sm font-medium transition-all text-sage-800 text-center flex flex-col items-center gap-1">
+                                    <span class="text-xl">😰</span> Anxious
+                                </button>
+                                <button onclick="setAffirmationMood('tired', this)" class="mood-btn border-2 border-sage-200 hover:border-sage-400 bg-white p-3 rounded-xl text-sm font-medium transition-all text-sage-800 text-center flex flex-col items-center gap-1">
+                                    <span class="text-xl">🥱</span> Tired / Fatigued
+                                </button>
+                                <button onclick="setAffirmationMood('restless', this)" class="mood-btn border-2 border-sage-200 hover:border-sage-400 bg-white p-3 rounded-xl text-sm font-medium transition-all text-sage-800 text-center flex flex-col items-center gap-1">
+                                    <span class="text-xl">🌀</span> Restless
+                                </button>
+                                <button onclick="setAffirmationMood('grateful', this)" class="mood-btn border-2 border-sage-200 hover:border-sage-400 bg-white p-3 rounded-xl text-sm font-medium transition-all text-sage-800 text-center flex flex-col items-center gap-1">
+                                    <span class="text-xl">🌸</span> Grateful
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Voice Type Option -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-1.5">Voice Style</label>
+                                <select id="aff-voice" class="w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                                    <option value="Zephyr">Zephyr (Bright & Present)</option>
+                                    <option value="Puck">Puck (Upbeat & Uplifting)</option>
+                                    <option value="Sulafat">Sulafat (Warm & Soothing)</option>
+                                    <option value="Vindemiatrix">Vindemiatrix (Gentle & Calm)</option>
+                                    <option value="Charon">Charon (Deep & Informative)</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button onclick="generateAIAffirmation()" class="w-full bg-sage-800 hover:bg-sage-900 text-white font-medium py-3 rounded-xl transition-all duration-200 shadow-md flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-gold-200"></i>
+                                    <span>Create Affirmation</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Audio Affirmation Feedback Player card -->
+                        <div id="aff-player-card" class="hidden border border-sage-100 rounded-2xl bg-gold-50 p-6 flex flex-col md:flex-row items-center md:justify-between gap-4">
+                            <div class="space-y-1 text-center md:text-left">
+                                <p class="text-xs uppercase tracking-wider font-bold text-gold-600">Your Custom Meditation</p>
+                                <p id="aff-text" class="text-sage-800 font-serif italic text-base">"..."</p>
+                            </div>
+                            <!-- Dynamic Audio Action Player -->
+                            <div class="flex-shrink-0 flex items-center gap-3">
+                                <button id="btn-play-tts" onclick="playAffirmationTTS()" class="w-12 h-12 bg-gold-500 hover:bg-gold-600 text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105" disabled>
+                                    <i class="fa-solid fa-play text-lg ml-1" id="play-icon"></i>
+                                </button>
+                                <div id="tts-audio-indicator" class="hidden flex items-center gap-0.5 h-6">
+                                    <div class="w-1 bg-gold-500 rounded-full animate-bounce h-4" style="animation-delay: 0.1s;"></div>
+                                    <div class="w-1 bg-gold-500 rounded-full animate-bounce h-6" style="animation-delay: 0.3s;"></div>
+                                    <div class="w-1 bg-gold-500 rounded-full animate-bounce h-3" style="animation-delay: 0.5s;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WORKSPACE 3: Ask AI Yogi Coach -->
+                    <div id="panel-coach" class="space-y-4 hidden flex-grow flex flex-col">
+                        <div>
+                            <h4 class="font-serif text-2xl font-bold text-sage-900">Ask the AI Yogi Coach</h4>
+                            <p class="text-sm text-gray-500">Ask our virtual mentor about alignment, form modifications, posture holding, or wellness routines.</p>
+                        </div>
+
+                        <!-- Chat Display Screen -->
+                        <div id="chat-messages" class="flex-grow border border-sage-100 rounded-2xl bg-sage-50/40 p-4 space-y-4 overflow-y-auto max-h-[300px] flex flex-col">
+                            <!-- Welcome Message -->
+                            <div class="bg-white border border-sage-100 p-3.5 rounded-2xl max-w-[85%] self-start shadow-sm flex gap-3">
+                                <div class="w-8 h-8 rounded-full bg-sage-100 text-sage-600 flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-lotus"></i>
+                                </div>
+                                <div class="text-sm">
+                                    <p class="font-semibold text-sage-900">AI Yogi Assistant</p>
+                                    <p class="text-gray-600 mt-1">Namaste! I am here to help guide your mental & physical journey today. Ask me anything about yoga posture adjustments, pain modification, or breathing practices.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Message Input Row -->
+                        <form onsubmit="handleChatSubmit(event)" class="flex gap-2">
+                            <input type="text" id="chat-input" placeholder="How do I modify downward dog for wrists?" required class="flex-grow bg-sage-50 border border-sage-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                            <button type="submit" id="btn-chat-send" class="bg-sage-800 hover:bg-sage-900 text-white font-medium px-5 py-3 rounded-xl transition-all duration-200 flex items-center justify-center">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Bio Visual Collage with beautiful styling elements -->
+            <div class="relative">
+                <div class="absolute -top-4 -left-4 w-12 h-12 border-t-4 border-l-4 border-gold-500"></div>
+                <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-4 border-r-4 border-gold-500"></div>
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" 
+                     alt="Yogic meditation concept" 
+                     class="rounded-2xl shadow-xl w-full object-cover h-[450px]"
+                     onerror="this.src='https://placehold.co/800x450/e3eae3/3a543a?text=Yoga+Practice'">
+                <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm p-5 rounded-xl shadow-lg border border-sage-100 max-w-[280px]">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2.5 bg-sage-100 rounded-full text-sage-700">
+                            <i class="fa-solid fa-award text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sage-900 text-sm">Certified Yoga Coach</p>
+                            <p class="text-xs text-gray-500">500+ Hours Mastery Training</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bio Texts -->
+            <div class="space-y-6">
+                <span class="text-gold-500 font-bold uppercase tracking-wider text-xs">Meet Your Mentor</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-sage-900 font-bold">Namaste, I am Prachi Bhattiwal</h2>
+                <p class="text-gray-600 leading-relaxed text-base md:text-lg">
+                    I believe that yoga is not simply about physical flexibility, but a sacred journey toward inner peace, profound physical longevity, and emotional rejuvenation. My goal is to craft a warm, welcoming space where beginners and long-term yogis alike can connect beautifully.
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <span class="text-gold-500 mt-1"><i class="fa-solid fa-circle-check"></i></span>
+                        <p class="text-gray-700"><strong class="text-sage-900 font-medium">Wholeness-focused sessions:</strong> Cultivating physical power, intentional mindfulness, and healthy breathing patterns.</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <span class="text-gold-500 mt-1"><i class="fa-solid fa-circle-check"></i></span>
+                        <p class="text-gray-700"><strong class="text-sage-900 font-medium">Individually tailored:</strong> Adaptable programs optimized for varying skeletal frameworks and therapeutic needs.</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <span class="text-gold-500 mt-1"><i class="fa-solid fa-circle-check"></i></span>
+                        <p class="text-gray-700"><strong class="text-sage-900 font-medium">Safe Virtual Space:</strong> Flexible online and offline community structures keeping you completely motivated.</p>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="#services" class="bg-sage-700 hover:bg-sage-800 text-white font-medium px-6 py-3 rounded-full shadow-md transition-all">Explore Classes</a>
+                    <a href="#contact" class="border border-sage-300 text-sage-700 hover:bg-sage-100 font-medium px-6 py-3 rounded-full transition-all">Get in Touch</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Classes & Services Section -->
+    <section id="services" class="py-20 bg-sage-100 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-500 font-bold uppercase tracking-widest text-xs">Curated Modalities</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-sage-900 font-bold mt-2 mb-4">Holistic Classes Offered</h2>
+                <p class="text-gray-600">Choose the optimal framework that harmonizes with your personal life. Select any course style to customize a direct class reservation request.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 duration-300 flex flex-col h-full border border-sage-50">
+                    <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Online Yoga" onerror="this.src='https://placehold.co/600x400/cbdacb/283928?text=Online+Yoga'">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-serif text-xl font-bold text-sage-900 mb-2">Online Yoga</h3>
+                        <p class="text-gray-600 text-sm flex-grow mb-4">Connect and stretch dynamically from the quiet comfort of your own home, with personalized direct posture guidance.</p>
+                        <button onclick="preSelectBooking('Online Yoga')" class="w-full bg-sage-50 text-sage-800 hover:bg-gold-500 hover:text-white font-medium py-2 rounded-xl transition-colors duration-200">
+                            Book Live Session
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 duration-300 flex flex-col h-full border border-sage-50">
+                    <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=600&q=80" alt="Personal Training" onerror="this.src='https://placehold.co/600x400/cbdacb/283928?text=Personal+Yoga'">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-serif text-xl font-bold text-sage-900 mb-2">Personal Yoga</h3>
+                        <p class="text-gray-600 text-sm flex-grow mb-4">Highly tailored, results-driven 1-on-1 private practice matching individual flexibility thresholds.</p>
+                        <button onclick="preSelectBooking('Personal Yoga')" class="w-full bg-sage-50 text-sage-800 hover:bg-gold-500 hover:text-white font-medium py-2 rounded-xl transition-colors duration-200">
+                            Book Live Session
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 duration-300 flex flex-col h-full border border-sage-50">
+                    <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=600&q=80" alt="Group Yoga" onerror="this.src='https://placehold.co/600x400/cbdacb/283928?text=Group+Yoga'">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-serif text-xl font-bold text-sage-900 mb-2">Group Yoga</h3>
+                        <p class="text-gray-600 text-sm flex-grow mb-4">Feel inspired within a beautifully positive community environment, growing stronger together.</p>
+                        <button onclick="preSelectBooking('Group Yoga')" class="w-full bg-sage-50 text-sage-800 hover:bg-gold-500 hover:text-white font-medium py-2 rounded-xl transition-colors duration-200">
+                            Book Live Session
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 duration-300 flex flex-col h-full border border-sage-50">
+                    <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80" alt="Meditation Sessions" onerror="this.src='https://placehold.co/600x400/cbdacb/283928?text=Meditation'">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-serif text-xl font-bold text-sage-900 mb-2">Meditation</h3>
+                        <p class="text-gray-600 text-sm flex-grow mb-4">Gentle breathwork, anxiety management routines, and tranquil modern mindfulness blueprints.</p>
+                        <button onclick="preSelectBooking('Meditation Session')" class="w-full bg-sage-50 text-sage-800 hover:bg-gold-500 hover:text-white font-medium py-2 rounded-xl transition-colors duration-200">
+                            Book Live Session
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-20 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-20">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-gold-500 font-bold uppercase tracking-widest text-xs font-semibold">Weekly Program</span>
+            <h2 class="font-serif text-3xl md:text-5xl text-sage-900 font-bold mt-2 mb-4">Yoga Schedule</h2>
+            <p class="text-gray-600">The current day is highlighted to assist you in making plans. Choose a preferred time slot below and click book.</p>
+        </div>
+
+        <!-- Schedule Table -->
+        <div class="overflow-hidden bg-white rounded-2xl shadow-xl border border-sage-100 max-w-5xl mx-auto">
+            <!-- Table Wrapper for Responsiveness -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-sage-800 text-white text-sm md:text-base uppercase tracking-wider">
+                            <th class="py-5 px-6 font-semibold">Day of Week</th>
+                            <th class="py-5 px-6 font-semibold text-center">Morning Session</th>
+                            <th class="py-5 px-6 font-semibold text-center">Evening Session</th>
+                            <th class="py-5 px-6 font-semibold text-center">Reservation action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-sage-100 font-medium">
+                        
+                        <!-- Monday -->
+                        <tr id="schedule-monday" class="hover:bg-sage-50/50 transition-colors">
+                            <td class="py-5 px-6 flex items-center space-x-2 text-sage-900">
+                                <span class="day-dot hidden w-2.5 h-2.5 bg-gold-500 rounded-full animate-pulse"></span>
+                                <span>Monday</span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 AM</td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 PM</td>
+                            <td class="py-5 px-6 text-center">
+                                <button onclick="preSelectBooking('Monday Class', 'Morning')" class="bg-sage-100 hover:bg-gold-500 hover:text-white text-sage-800 text-sm px-4 py-1.5 rounded-full transition-all duration-200">
+                                    Reserve Slot
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Tuesday -->
+                        <tr id="schedule-tuesday" class="hover:bg-sage-50/50 transition-colors">
+                            <td class="py-5 px-6 flex items-center space-x-2 text-sage-900">
+                                <span class="day-dot hidden w-2.5 h-2.5 bg-gold-500 rounded-full animate-pulse"></span>
+                                <span>Tuesday</span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 AM</td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 PM</td>
+                            <td class="py-5 px-6 text-center">
+                                <button onclick="preSelectBooking('Tuesday Class', 'Morning')" class="bg-sage-100 hover:bg-gold-500 hover:text-white text-sage-800 text-sm px-4 py-1.5 rounded-full transition-all duration-200">
+                                    Reserve Slot
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Wednesday -->
+                        <tr id="schedule-wednesday" class="hover:bg-sage-50/50 transition-colors">
+                            <td class="py-5 px-6 flex items-center space-x-2 text-sage-900">
+                                <span class="day-dot hidden w-2.5 h-2.5 bg-gold-500 rounded-full animate-pulse"></span>
+                                <span>Wednesday</span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 AM</td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 PM</td>
+                            <td class="py-5 px-6 text-center">
+                                <button onclick="preSelectBooking('Wednesday Class', 'Morning')" class="bg-sage-100 hover:bg-gold-500 hover:text-white text-sage-800 text-sm px-4 py-1.5 rounded-full transition-all duration-200">
+                                    Reserve Slot
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Thursday -->
+                        <tr id="schedule-thursday" class="hover:bg-sage-50/50 transition-colors">
+                            <td class="py-5 px-6 flex items-center space-x-2 text-sage-900">
+                                <span class="day-dot hidden w-2.5 h-2.5 bg-gold-500 rounded-full animate-pulse"></span>
+                                <span>Thursday</span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 AM</td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 PM</td>
+                            <td class="py-5 px-6 text-center">
+                                <button onclick="preSelectBooking('Thursday Class', 'Morning')" class="bg-sage-100 hover:bg-gold-500 hover:text-white text-sage-800 text-sm px-4 py-1.5 rounded-full transition-all duration-200">
+                                    Reserve Slot
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Friday -->
+                        <tr id="schedule-friday" class="hover:bg-sage-50/50 transition-colors">
+                            <td class="py-5 px-6 flex items-center space-x-2 text-sage-900">
+                                <span class="day-dot hidden w-2.5 h-2.5 bg-gold-500 rounded-full animate-pulse"></span>
+                                <span>Friday</span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 AM</td>
+                            <td class="py-5 px-6 text-center text-gray-600">06:00 PM</td>
+                            <td class="py-5 px-6 text-center">
+                                <button onclick="preSelectBooking('Friday Class', 'Morning')" class="bg-sage-100 hover:bg-gold-500 hover:text-white text-sage-800 text-sm px-4 py-1.5 rounded-full transition-all duration-200">
+                                    Reserve Slot
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Saturday -->
+                        <tr id="schedule-saturday" class="hover:bg-sage-50/50 transition-colors">
+                            <td class="py-5 px-6 flex items-center space-x-2 text-sage-900">
+                                <span class="day-dot hidden w-2.5 h-2.5 bg-gold-500 rounded-full animate-pulse"></span>
+                                <span>Saturday</span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">07:00 AM</td>
+                            <td class="py-5 px-6 text-center text-gray-600">05:00 PM</td>
+                            <td class="py-5 px-6 text-center">
+                                <button onclick="preSelectBooking('Saturday Class', 'Morning')" class="bg-sage-100 hover:bg-gold-500 hover:text-white text-sage-800 text-sm px-4 py-1.5 rounded-full transition-all duration-200">
+                                    Reserve Slot
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Sunday -->
+                        <tr id="schedule-sunday" class="hover:bg-sage-50/50 transition-colors">
+                            <td class="py-5 px-6 flex items-center space-x-2 text-sage-900">
+                                <span class="day-dot hidden w-2.5 h-2.5 bg-gold-500 rounded-full animate-pulse"></span>
+                                <span>Sunday</span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gold-600">Workshop Special</td>
+                            <td class="py-5 px-6 text-center text-red-500 italic">No Evening Session</td>
+                            <td class="py-5 px-6 text-center">
+                                <button onclick="preSelectBooking('Sunday Workshop', 'Morning')" class="bg-sage-100 hover:bg-gold-500 hover:text-white text-sage-800 text-sm px-4 py-1.5 rounded-full transition-all duration-200">
+                                    Reserve Slot
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-sage-950 text-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold-500 font-bold uppercase tracking-widest text-xs">Aura & Reverb</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold mt-2 mb-4">Inspiring Transformations</h2>
+                <p class="text-sage-200">Read beautiful direct accounts from our global yoga family.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-sage-900 border border-sage-800 p-8 rounded-2xl shadow-md space-y-4">
+                    <div class="flex items-center space-x-1 text-gold-500">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sage-100 italic leading-relaxed">
+                        "Prachi’s peaceful aura instantly calms my mind. Her dynamic breathing techniques helped alleviate three years of chronic daily stressful breathing patterns!"
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Sarah J." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Sarah Jenkins</h4>
+                            <span class="text-xs text-sage-400">Online Yoga Practitioner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-sage-900 border border-sage-800 p-8 rounded-2xl shadow-md space-y-4">
+                    <div class="flex items-center space-x-1 text-gold-500">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sage-100 italic leading-relaxed">
+                        "The personal 1-on-1 programs are perfectly detailed. She pays amazing attention to posture modifications, helping with recovery after my ankle tear."
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Michael K." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Michael Kapoor</h4>
+                            <span class="text-xs text-sage-400">Personal Program Yogi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-sage-900 border border-sage-800 p-8 rounded-2xl shadow-md space-y-4">
+                    <div class="flex items-center space-x-1 text-gold-500">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sage-100 italic leading-relaxed">
+                        "The group yoga sessions are incredibly refreshing! Friendly environment, highly accessible to absolute beginners but with room for expert advancement too."
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Anya S." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Anya Shrivastava</h4>
+                            <span class="text-xs text-sage-400">Weekly Group Member</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-sage-50 scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold-500 font-bold uppercase tracking-widest text-xs">Clarity</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-sage-900 font-bold mt-2">Frequently Asked Questions</h2>
+            </div>
+
+            <!-- FAQ Container -->
+            <div class="space-y-4">
+                
+                <!-- Item 1 -->
+                <div class="bg-white rounded-2xl border border-sage-100 shadow-sm overflow-hidden transition-all duration-300">
+                    <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-sage-900 text-sm md:text-base">What if I have never practiced yoga before?</span>
+                        <span class="text-sage-500 transition-transform duration-200"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-sage-50/50">
+                        <p class="p-6 text-sm text-gray-600 leading-relaxed">
+                            Welcome! Many of our regular clients started as absolute beginners. Every single session includes clear modifications for varying degrees of flexibility and comfort.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white rounded-2xl border border-sage-100 shadow-sm overflow-hidden transition-all duration-300">
+                    <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-sage-900 text-sm md:text-base">What equipment do I need to prepare?</span>
+                        <span class="text-sage-500 transition-transform duration-200"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-sage-50/50">
+                        <p class="p-6 text-sm text-gray-600 leading-relaxed">
+                            At a minimum, you only need a comfortable, slip-resistant yoga mat and some water. Having two foam yoga blocks and a durable cotton yoga strap handy is highly recommended.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white rounded-2xl border border-sage-100 shadow-sm overflow-hidden transition-all duration-300">
+                    <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-bold text-sage-900 text-sm md:text-base">How long are the online live classes?</span>
+                        <span class="text-sage-500 transition-transform duration-200"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-sage-50/50">
+                        <p class="p-6 text-sm text-gray-600 leading-relaxed">
+                            Our primary general and themed live online sessions run for exactly 60 minutes, which includes warm-ups, main posture series, pranayama breathing, and final restorative relaxation.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-12 bg-white border-t border-sage-100 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Contact Info Column -->
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <span class="text-gold-500 font-bold uppercase tracking-widest text-xs">Reach Out</span>
+                        <h2 class="font-serif text-3xl md:text-5xl text-sage-900 font-bold">Start Your Journey</h2>
+                        <p class="text-gray-600 max-w-md">
+                            Have some questions before starting? Send a message directly, drop an email, or connect with me immediately via WhatsApp.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3.5 bg-sage-100 rounded-full text-sage-700">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold">Phone Contact</p>
+                                <a href="tel:+919389487036" class="text-base text-sage-900 font-semibold hover:underline">+91 93894 87036</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3.5 bg-sage-100 rounded-full text-sage-700">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold">Email Address</p>
+                                <a href="mailto:Prachibhattiwal543@gmail.com" class="text-base text-sage-900 font-semibold hover:underline">Prachibhattiwal543@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3.5 bg-emerald-100 rounded-full text-emerald-700">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold">Immediate Chat</p>
+                                <a href="https://wa.me/919389487036" target="_blank" class="text-base text-emerald-800 font-bold hover:underline">Chat on WhatsApp Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Quick-Contact Badge -->
+                    <div class="p-6 bg-gold-100 rounded-2xl border border-gold-500/20 max-w-md">
+                        <p class="text-gold-800 text-sm italic font-medium">
+                            "Your health is an investment, not an expense. Let's make wellness a consistent daily practice together."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dynamic Contact Messaging Form -->
+                <div class="bg-sage-50 p-8 md:p-10 rounded-3xl border border-sage-100 shadow-md">
+                    <h3 class="font-serif text-2xl font-bold text-sage-900 mb-6">Send a Quick Inquiry</h3>
+                    <form id="contact-form" class="space-y-5" onsubmit="handleInquirySubmit(event)">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-2">Full Name</label>
+                            <input type="text" id="contact-name" placeholder="John Doe" required class="w-full bg-white border border-sage-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-2">Email Address</label>
+                            <input type="email" id="contact-email" placeholder="johndoe@gmail.com" required class="w-full bg-white border border-sage-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-2">Message or Custom Requirements</label>
+                            <textarea id="contact-message" rows="4" placeholder="Hello Prachi, I would like to learn more about..." required class="w-full bg-white border border-sage-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-sage-800 hover:bg-sage-900 text-white font-medium py-3 rounded-xl transition-all duration-200 shadow-md flex items-center justify-center space-x-2">
+                            <span>Submit via WhatsApp</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-sage-950 text-white/90 py-12 px-6 border-t border-sage-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2 text-white">
+                    <svg class="w-7 h-7 text-gold-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C11.5 2 10 5 10 9c0 4 1.5 7 2 7s2-3 2-7c0-4-1.5-7-2-7zm-4.5 4c-.4 0-1.5 2.1-1.5 4.9 0 2.8 1.1 4.9 1.5 4.9s1.5-2.1 1.5-4.9c0-2.8-1.1-4.9-1.5-4.9zm9 0c-.4 0-1.5 2.1-1.5 4.9 0 2.8 1.1 4.9 1.5 4.9s1.5-2.1 1.5-4.9c0-2.8-1.1-4.9-1.5-4.9z"/>
+                        <path d="M12 18c-3.5 0-8 1.5-8 4h16c0-2.5-4.5-4-8-4z"/>
+                    </svg>
+                    <span class="font-serif font-bold text-lg tracking-wide">Prachi Bhattiwal Yoga</span>
+                </div>
+                <p class="text-sm text-sage-300 max-w-sm leading-relaxed">
+                    Providing certified offline and online wellness programs, restorative meditation, and physical empowerment formats.
+                </p>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-bold text-white text-sm uppercase tracking-wider">Useful Navigation</h4>
+                <div class="grid grid-cols-2 gap-2 text-sm text-sage-300">
+                    <a href="#about" class="hover:text-gold-500">About Me</a>
+                    <a href="#breathe-tool" class="hover:text-gold-500">Breathe Widget</a>
+                    <a href="#services" class="hover:text-gold-500">Services</a>
+                    <a href="#schedule" class="hover:text-gold-500">Weekly Schedule</a>
+                    <a href="#testimonials" class="hover:text-gold-500">Testimonials</a>
+                    <a href="#contact" class="hover:text-gold-500">Contact</a>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-bold text-white text-sm uppercase tracking-wider">Social Channels</h4>
+                <div class="flex space-x-4">
+                    <a href="https://wa.me/919389487036" class="p-2.5 bg-sage-900 hover:bg-gold-500 hover:text-white rounded-full transition-colors" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                    <a href="#" class="p-2.5 bg-sage-900 hover:bg-gold-500 hover:text-white rounded-full transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="p-2.5 bg-sage-900 hover:bg-gold-500 hover:text-white rounded-full transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook text-lg"></i></a>
+                    <a href="#" class="p-2.5 bg-sage-900 hover:bg-gold-500 hover:text-white rounded-full transition-colors" aria-label="YouTube"><i class="fa-brands fa-youtube text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-sage-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-sage-400 space-y-4 sm:space-y-0">
+            <p>© 2026 Prachi Bhattiwal Yoga. All Rights Reserved.</p>
+            <p class="flex items-center">Made with &nbsp;<i class="fa-solid fa-heart text-red-500"></i>&nbsp; for Healthy Living</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal Backdrop -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-sage-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl relative animate-fade-in border border-sage-100">
+            <!-- Modal Header -->
+            <div class="bg-sage-800 p-6 text-white relative">
+                <h3 class="font-serif text-2xl font-bold">Book a Wellness Session</h3>
+                <p class="text-sage-200 text-sm mt-1">Configure your yoga preferences instantly.</p>
+                <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-white/80 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Form Content -->
+            <div class="p-8 space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-2">Your Name</label>
+                    <input type="text" id="booking-name" placeholder="John Doe" class="w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                </div>
+                
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-2">Class Option</label>
+                    <select id="booking-class" class="w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                        <option value="Online Yoga">Online Yoga Session</option>
+                        <option value="Personal Yoga">Personal 1-on-1 Practice</option>
+                        <option value="Group Yoga">Group Yoga Session</option>
+                        <option value="Meditation Session">Meditation & Breathing</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-2">Target Day</label>
+                        <select id="booking-day" class="w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-2">Preference Time</label>
+                        <select id="booking-time" class="w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                            <option value="Morning">Morning Session</option>
+                            <option value="Evening">Evening Session</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Custom Note -->
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-bold text-sage-800 mb-2">Health Objectives / Notes (Optional)</label>
+                    <input type="text" id="booking-note" placeholder="E.g., Back pain recovery, stress reduction" class="w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-sage-500 focus:outline-none transition-all">
+                </div>
+
+                <!-- Confirm Action -->
+                <button onclick="submitBooking()" class="w-full mt-4 bg-gold-500 hover:bg-gold-600 text-white font-medium py-3 rounded-xl shadow-md transition-all duration-200 flex items-center justify-center space-x-2">
+                    <span>Send Booking to WhatsApp</span>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Logic -->
+    <script>
+        // DOM Elements
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const bookingModal = document.getElementById('booking-modal');
+
+        // Navigation Highlight on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-sage-950/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
+                navbar.classList.remove('bg-transparent', 'py-4');
+            } else {
+                navbar.classList.remove('bg-sage-950/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
+                navbar.classList.add('bg-transparent', 'py-4');
+            }
+        });
+
+        // Mobile Menu toggles
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile drawer on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // FAQ accordion transitions
+        function toggleFaq(button) {
+            const body = button.nextElementSibling;
+            const icon = button.querySelector('span:last-child');
+            
+            // Check if active
+            if (body.style.maxHeight && body.style.maxHeight !== '0px') {
+                body.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+                button.parentElement.classList.remove('ring-1', 'ring-sage-400');
+            } else {
+                // Collapse other items
+                document.querySelectorAll('.max-h-0').forEach(el => {
+                    el.style.maxHeight = '0px';
+                    const parentBtn = el.previousElementSibling;
+                    const parentIcon = parentBtn.querySelector('span:last-child');
+                    parentIcon.style.transform = 'rotate(0deg)';
+                    el.parentElement.classList.remove('ring-1', 'ring-sage-400');
+                });
+                
+                body.style.maxHeight = body.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+                button.parentElement.classList.add('ring-1', 'ring-sage-400');
+            }
+        }
+
+        // Highlight Active Weekday
+        window.addEventListener('load', () => {
+            const daysOfWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const todayIndex = new Date().getDay();
+            const todayId = `schedule-${daysOfWeek[todayIndex]}`;
+            const targetRow = document.getElementById(todayId);
+            
+            if (targetRow) {
+                // Add highlight class
+                targetRow.classList.add('bg-gold-100/50', 'border-l-4', 'border-gold-500');
+                const dot = targetRow.querySelector('.day-dot');
+                if (dot) dot.classList.remove('hidden');
+            }
+        });
+
+        // Mindfulness Breathing widget engine
+        let breatheInterval = null;
+        let isBreathingActive = false;
+        let breathPhase = 0; // 0: inhale, 1: hold, 2: exhale
+        let breathTicks = 0;
+
+        function toggleBreathingWidget() {
+            const startBtn = document.getElementById('btn-start-breathe');
+            const resetBtn = document.getElementById('btn-reset-breathe');
+            const actionText = document.getElementById('breath-action');
+            const timerText = document.getElementById('breath-timer');
+            const bubble = document.getElementById('breathe-bubble');
+
+            if (!isBreathingActive) {
+                // Start Cycle
+                isBreathingActive = true;
+                startBtn.textContent = 'Pause Cycle';
+                startBtn.classList.replace('bg-sage-600', 'bg-amber-600');
+                startBtn.classList.replace('hover:bg-sage-700', 'hover:bg-amber-700');
+                resetBtn.removeAttribute('disabled');
+
+                breathTicks = 4;
+                breathPhase = 0; // Start with inhale
+                actionText.textContent = 'Inhale';
+                timerText.textContent = `${breathTicks}s`;
+                bubble.style.transform = 'scale(1.4)';
+                bubble.style.backgroundColor = 'rgba(197, 168, 128, 0.35)';
+
+                breatheInterval = setInterval(() => {
+                    breathTicks--;
+                    timerText.textContent = `${breathTicks}s`;
+
+                    if (breathTicks <= 0) {
+                        breathPhase = (breathPhase + 1) % 3;
+                        if (breathPhase === 0) {
+                            breathPhase = 0;
+                            breathTicks = 4; // Inhale 4s
+                            actionText.textContent = 'Inhale';
+                            bubble.style.transform = 'scale(1.4)';
+                            bubble.style.backgroundColor = 'rgba(197, 168, 128, 0.35)';
+                        } else if (breathPhase === 1) {
+                            breathTicks = 2; // Hold 2s
+                            actionText.textContent = 'Hold';
+                            bubble.style.transform = 'scale(1.4)';
+                        } else if (breathPhase === 2) {
+                            breathTicks = 4; // Exhale 4s
+                            actionText.textContent = 'Exhale';
+                            bubble.style.transform = 'scale(1.0)';
+                            bubble.style.backgroundColor = 'rgba(94, 131, 94, 0.2)';
+                        }
+                        timerText.textContent = `${breathTicks}s`;
+                    }
+                }, 1000);
+            } else {
+                // Pause Cycle
+                pauseBreathingWidget();
+            }
+        }
+
+        function pauseBreathingWidget() {
+            const startBtn = document.getElementById('btn-start-breathe');
+            const actionText = document.getElementById('breath-action');
+            const timerText = document.getElementById('breath-timer');
+            
+            isBreathingActive = false;
+            clearInterval(breatheInterval);
+            startBtn.textContent = 'Resume Guide';
+            startBtn.classList.replace('bg-amber-600', 'bg-sage-600');
+            startBtn.classList.replace('hover:bg-amber-700', 'hover:bg-sage-700');
+            actionText.textContent = 'Paused';
+        }
+
+        function resetBreathingWidget() {
+            const startBtn = document.getElementById('btn-start-breathe');
+            const resetBtn = document.getElementById('btn-reset-breathe');
+            const actionText = document.getElementById('breath-action');
+            const timerText = document.getElementById('breath-timer');
+            const bubble = document.getElementById('breathe-bubble');
+
+            isBreathingActive = false;
+            clearInterval(breatheInterval);
+            
+            startBtn.textContent = 'Start Guide';
+            startBtn.classList.replace('bg-amber-600', 'bg-sage-600');
+            startBtn.classList.replace('hover:bg-amber-700', 'hover:bg-sage-700');
+            resetBtn.setAttribute('disabled', 'true');
+
+            actionText.textContent = 'Breathe';
+            timerText.textContent = 'Ready';
+            bubble.style.transform = 'scale(1)';
+            bubble.style.backgroundColor = 'rgba(94, 131, 94, 0.2)';
+        }
+
+        // Modular Booking Systems Actions
+        function openBookingModal() {
+            bookingModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Lock background scroll
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.add('hidden');
+            document.body.style.overflow = ''; // Unlock scroll
+        }
+
+        // Auto-select preferences when clicking "Book" on service or schedule rows
+        function preSelectBooking(className, timePreference = 'Morning') {
+            const classSelect = document.getElementById('booking-class');
+            const daySelect = document.getElementById('booking-day');
+            const timeSelect = document.getElementById('booking-time');
+
+            // Parse Day if argument contains weekday name
+            const daysList = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            daysList.forEach(day => {
+                if (className.toLowerCase().includes(day.toLowerCase())) {
+                    daySelect.value = day;
+                }
+            });
+
+            // Map standard class selection items
+            if (className.toLowerCase().includes('online')) {
+                classSelect.value = 'Online Yoga';
+            } else if (className.toLowerCase().includes('personal')) {
+                classSelect.value = 'Personal Yoga';
+            } else if (className.toLowerCase().includes('group')) {
+                classSelect.value = 'Group Yoga';
+            } else if (className.toLowerCase().includes('meditation')) {
+                classSelect.value = 'Meditation Session';
+            }
+
+            timeSelect.value = timePreference;
+            openBookingModal();
+        }
+
+        // Compile information to trigger custom WhatsApp booking
+        function submitBooking() {
+            const name = document.getElementById('booking-name').value.trim() || 'Valued Guest';
+            const selectedClass = document.getElementById('booking-class').value;
+            const selectedDay = document.getElementById('booking-day').value;
+            const selectedTime = document.getElementById('booking-time').value;
+            const notes = document.getElementById('booking-note').value.trim();
+
+            const customNotePart = notes ? `\n*Additional Objectives:* ${notes}` : '';
+            const messageText = `Namaste Prachi! I would like to book a yoga session.
+*Name:* ${name}
+*Class:* ${selectedClass}
+*Preferred Day:* ${selectedDay}
+*Preferred Time:* ${selectedTime}${customNotePart}`;
+
+            // URL Encode text and redirect to WhatsApp
+            const encodedText = encodeURIComponent(messageText);
+            const whatsappUrl = `https://wa.me/919389487036?text=${encodedText}`;
+            window.open(whatsappUrl, '_blank');
+            closeBookingModal();
+        }
+
+        // Quick contact inquiry submission script
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            const inquiryText = `Namaste Prachi! I have a general inquiry.
+*Name:* ${name}
+*Email:* ${email}
+*Message:* ${message}`;
+
+            const encodedText = encodeURIComponent(inquiryText);
+            const whatsappUrl = `https://wa.me/919389487036?text=${encodedText}`;
+            window.open(whatsappUrl, '_blank');
+            document.getElementById('contact-form').reset();
+        }
+    </script>
+
+    <!-- GEMINI INTEGRATION JAVASCRIPT ENGINE -->
+    <script>
+        // Sanctuary Navigation Switch Tabs
+        function switchSanctuaryTab(activeTab) {
+            const tabs = ['sequencer', 'affirmation', 'coach'];
+            tabs.forEach(tab => {
+                const button = document.getElementById(`tab-${tab}`);
+                const panel = document.getElementById(`panel-${tab}`);
+                if (tab === activeTab) {
+                    button.className = "w-full text-left flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-200 bg-sage-800 text-gold-200 border-l-4 border-gold-500 font-medium text-sm md:text-base";
+                    panel.classList.remove('hidden');
+                } else {
+                    button.className = "w-full text-left flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-200 text-sage-300 hover:bg-sage-800/50 font-medium text-sm md:text-base";
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
+        // Global Helper: Custom Backoff Fetch Wrapper for Gemini API
+        const apiKey = ""; // Implicitly injected in live Canvas environment
+        async function callGeminiAPI(payload, modelName = "gemini-3-flash-preview") {
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+            
+            let retries = 3;
+            let delay = 1000;
+            while (retries > 0) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (response.ok) {
+                        return await response.json();
+                    }
+                    if (response.status === 429) {
+                        // Rate limit - Apply backoff
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                        retries--;
+                    } else {
+                        throw new Error(`HTTP Error: ${response.status}`);
+                    }
+                } catch (error) {
+                    if (retries === 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                    retries--;
+                }
+            }
+        }
+
+        // ==========================================
+        // FEATURE 1: AI YOGA POSE SEQUENCER
+        // ==========================================
+        async function generateAIYogaSequence() {
+            const focus = document.getElementById('seq-focus').value;
+            const duration = document.getElementById('seq-duration').value;
+            const level = document.getElementById('seq-level').value;
+            const container = document.getElementById('seq-result-container');
+
+            container.classList.remove('hidden');
+            container.innerHTML = `
+                <div class="flex items-center justify-center py-10 space-x-2 text-sage-600">
+                    <i class="fa-solid fa-spinner animate-spin text-2xl"></i>
+                    <span class="text-sm font-medium">Assembling custom alignment sequence with Gemini AI...</span>
+                </div>
+            `;
+
+            const systemPrompt = "You are a world-class certified Yoga therapist. Design detailed, beautiful, safe sequence adjustments.";
+            const userPrompt = `Generate a yoga sequence for:
+Primary Focus: ${focus}
+Target Duration: ${duration}
+Difficulty Level: ${level}
+
+Present this beautifully. Break it down into clear steps. Each step must have:
+1. Pose name (bold with sanskrit name)
+2. Duration to hold (e.g., "5 Breaths" or "1 Minute")
+3. Bullet points of exact alignment tips ("Keep spine long", etc.)
+4. A small, clear "Why" or physiological benefit statement.
+
+Format neatly in clean, semantic HTML layout with Tailwind classes. Ensure all text matches the cozy green/cream aesthetic. Avoid markdown codeblocks inside the return content.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userPrompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            try {
+                const result = await callGeminiAPI(payload);
+                const replyText = result.candidates?.[0]?.content?.parts?.[0]?.text || "Unable to formulate flow. Please retry.";
+                // Sanitize potential markdown wrappers that LLM might return
+                const cleanHTML = replyText.replace(/```html|```/g, "").trim();
+                container.innerHTML = cleanHTML;
+            } catch (err) {
+                container.innerHTML = `
+                    <div class="p-4 bg-red-50 text-red-700 rounded-xl text-sm flex gap-2 items-center">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Failed to load your AI Flow. Please verify your connection & try again.</span>
+                    </div>
+                `;
+            }
+        }
+
+        // ==========================================
+        // FEATURE 2: SPOKEN AI AFFIRMATIONS (TTS)
+        // ==========================================
+        let selectedMood = 'anxious';
+        let generatedAffirmationText = '';
+        let generatedAudioUrl = '';
+        let audioInstance = null;
+
+        function setAffirmationMood(mood, button) {
+            selectedMood = mood;
+            // Clear prior states
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                btn.classList.replace('border-sage-600', 'border-sage-200');
+                btn.classList.remove('bg-sage-50', 'ring-2', 'ring-sage-500/20');
+            });
+            button.classList.replace('border-sage-200', 'border-sage-600');
+            button.classList.add('bg-sage-50', 'ring-2', 'ring-sage-500/20');
+        }
+
+        // Base64 helper converters (mandatory inline base64 encoders/decoders)
+        function base64ToArrayBuffer(base64) {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        function pcmToWav(pcm16Data, sampleRate) {
+            const buffer = new ArrayBuffer(44 + pcm16Data.byteLength);
+            const view = new DataView(buffer);
+
+            // "RIFF" chunk descriptor
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + pcm16Data.byteLength, true);
+            writeString(view, 8, 'WAVE');
+
+            // "fmt " sub-chunk
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true); // Size of fmt chunk
+            view.setUint16(20, 1, true);   // Uncompressed PCM format
+            view.setUint16(22, 1, true);   // Mono channel
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * 2, true); // Byte rate (sampleRate * 1 channel * 16 bits/8)
+            view.setUint16(32, 2, true);              // Block align
+            view.setUint16(34, 16, true);             // 16 bits per sample
+
+            // "data" sub-chunk
+            writeString(view, 36, 'data');
+            view.setUint32(40, pcm16Data.byteLength, true);
+
+            // Copy PCM bytes directly
+            const pcmBytes = new Uint8Array(pcm16Data);
+            for (let i = 0; i < pcmBytes.length; i++) {
+                view.setUint8(44 + i, pcmBytes[i]);
+            }
+
+            return new Blob([view], { type: 'audio/wav' });
+        }
+
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        async function generateAIAffirmation() {
+            const card = document.getElementById('aff-player-card');
+            const txt = document.getElementById('aff-text');
+            const playBtn = document.getElementById('btn-play-tts');
+            
+            // Clean active audio instances
+            if (audioInstance) {
+                audioInstance.pause();
+                audioInstance = null;
+                document.getElementById('play-icon').className = "fa-solid fa-play text-lg ml-1";
+                document.getElementById('tts-audio-indicator').classList.add('hidden');
+            }
+
+            card.classList.remove('hidden');
+            txt.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Mindfully crafting text affirmation...`;
+            playBtn.setAttribute('disabled', 'true');
+
+            // 1. Generate Calm Affirmation Text
+            const textPrompt = `Generate a single, deeply calming, elegant mental affirmation (under 25 words) for a person who feels extremely ${selectedMood}. Address them with grace, warmth, and mindfulness. No hashtags or intros.`;
+            const textPayload = {
+                contents: [{ parts: [{ text: textPrompt }] }],
+                systemInstruction: { parts: [{ text: "You are a thoughtful spiritual guide. Write brief, tranquil affirmations." }] }
+            };
+
+            try {
+                const textResult = await callGeminiAPI(textPayload);
+                generatedAffirmationText = textResult.candidates?.[0]?.content?.parts?.[0]?.text || "Breathe, you are safe and supported.";
+                txt.textContent = `"${generatedAffirmationText}"`;
+
+                // 2. Synthesize with Gemini Speech TTS model
+                txt.innerHTML = `"${generatedAffirmationText}" <span class="block text-xs text-gold-600 mt-2"><i class="fa-solid fa-spinner animate-spin"></i> Harmonizing spoken AI audio...</span>`;
+                const selectedVoice = document.getElementById('aff-voice').value;
+
+                const ttsPayload = {
+                    contents: [{
+                        parts: [{ text: `Say with extreme peace, slow pacing, and gentle reassurance: ${generatedAffirmationText}` }]
+                    }],
+                    generationConfig: {
+                        responseModalities: ["AUDIO"],
+                        speechConfig: {
+                            voiceConfig: {
+                                prebuiltVoiceConfig: { voiceName: selectedVoice }
+                            }
+                        }
+                    }
+                };
+
+                const ttsResponse = await callGeminiAPI(ttsPayload, "gemini-2.5-flash-preview-tts");
+                const part = ttsResponse?.candidates?.[0]?.content?.parts?.[0];
+                const audioData = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType;
+
+                if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                    const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)?.[1] || "24000", 10);
+                    const pcmBuffer = base64ToArrayBuffer(audioData);
+                    const pcm16 = new Int16Array(pcmBuffer);
+                    const wavBlob = pcmToWav(pcm16.buffer, sampleRate);
+                    generatedAudioUrl = URL.createObjectURL(wavBlob);
+
+                    // Re-enable Player controls
+                    txt.textContent = `"${generatedAffirmationText}"`;
+                    playBtn.removeAttribute('disabled');
+                } else {
+                    throw new Error("TTS conversion response missing payload.");
+                }
+
+            } catch (err) {
+                txt.textContent = `"${generatedAffirmationText}"`;
+                txt.innerHTML += `<span class="block text-xs text-red-600 mt-2"><i class="fa-solid fa-triangle-exclamation"></i> Audio failed to stream, but enjoy the written affirmation!</span>`;
+            }
+        }
+
+        function playAffirmationTTS() {
+            const icon = document.getElementById('play-icon');
+            const indicator = document.getElementById('tts-audio-indicator');
+
+            if (!generatedAudioUrl) return;
+
+            if (audioInstance && !audioInstance.paused) {
+                audioInstance.pause();
+                icon.className = "fa-solid fa-play text-lg ml-1";
+                indicator.classList.add('hidden');
+            } else {
+                if (!audioInstance) {
+                    audioInstance = new Audio(generatedAudioUrl);
+                    audioInstance.addEventListener('ended', () => {
+                        icon.className = "fa-solid fa-play text-lg ml-1";
+                        indicator.classList.add('hidden');
+                        audioInstance = null;
+                    });
+                }
+                audioInstance.play();
+                icon.className = "fa-solid fa-pause text-lg";
+                indicator.classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // FEATURE 3: COMPASSIONATE AI YOGI COACH
+        // ==========================================
+        const chatHistory = [];
+
+        async function handleChatSubmit(event) {
+            event.preventDefault();
+            const inputEl = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('btn-chat-send');
+            const chatMessages = document.getElementById('chat-messages');
+
+            const query = inputEl.value.trim();
+            if (!query) return;
+
+            // Clear Input and lock elements
+            inputEl.value = "";
+            inputEl.disabled = true;
+            sendBtn.disabled = true;
+
+            // Render User Bubble
+            const userMsgHtml = `
+                <div class="bg-sage-100/60 border border-sage-200/50 p-3.5 rounded-2xl max-w-[85%] self-end shadow-sm text-sm">
+                    <p class="font-semibold text-sage-900">You</p>
+                    <p class="text-gray-700 mt-1">${query}</p>
+                </div>
+            `;
+            chatMessages.insertAdjacentHTML('beforeend', userMsgHtml);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Render Interim Loading Bubble
+            const loadBubbleId = `ai-msg-${Date.now()}`;
+            const loadingBubbleHtml = `
+                <div id="${loadBubbleId}" class="bg-white border border-sage-100 p-3.5 rounded-2xl max-w-[85%] self-start shadow-sm flex gap-3 text-sm animate-pulse">
+                    <div class="w-8 h-8 rounded-full bg-sage-100 text-sage-600 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-lotus"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sage-900">AI Yogi Assistant</p>
+                        <p class="text-gray-500 mt-1"><i class="fa-solid fa-spinner animate-spin mr-1"></i> Formulating guidance...</p>
+                    </div>
+                </div>
+            `;
+            chatMessages.insertAdjacentHTML('beforeend', loadingBubbleHtml);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Invoke Gemini Content
+            const systemInstructions = "You are Prachi Bhattiwal's virtual Yoga & Meditation coach. Speak warmly, wise, and compassionately. Give concise and clear alignment solutions. Keep responses under 75 words.";
+            chatHistory.push({ role: "user", parts: [{ text: query }] });
+
+            const payload = {
+                contents: chatHistory,
+                systemInstruction: { parts: [{ text: systemInstructions }] }
+            };
+
+            try {
+                const response = await callGeminiAPI(payload);
+                const reply = response?.candidates?.[0]?.content?.parts?.[0]?.text || "Namaste. Let us reflect on that again. Breathe deeply and retry.";
+
+                // Cache model answer to history for conversation continuity
+                chatHistory.push({ role: "model", parts: [{ text: reply }] });
+
+                // Replace loading bubble with content
+                const activeBubble = document.getElementById(loadBubbleId);
+                activeBubble.className = "bg-white border border-sage-100 p-3.5 rounded-2xl max-w-[85%] self-start shadow-sm flex gap-3 text-sm transition-all";
+                activeBubble.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-sage-100 text-sage-600 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-lotus"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sage-900">AI Yogi Assistant</p>
+                        <p class="text-gray-600 mt-1">${reply}</p>
+                    </div>
+                `;
+            } catch (err) {
+                const activeBubble = document.getElementById(loadBubbleId);
+                activeBubble.className = "bg-red-50 text-red-800 p-3.5 rounded-2xl max-w-[85%] self-start shadow-sm flex gap-3 text-sm";
+                activeBubble.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold">Sanctuary Sync Error</p>
+                        <p class="mt-1">Unable to connect to Yogi advisor. Please confirm connection.</p>
+                    </div>
+                `;
+            }
+
+            // Restore elements
+            inputEl.disabled = false;
+            sendBtn.disabled = false;
+            inputEl.focus();
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+</html>
